@@ -1,0 +1,66 @@
+---
+- name: Install required packages
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg
+    - lsb-release
+
+- name: Add Docker’s official GPG key
+  become: yes
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker apt repository
+  become: yes
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+    state: present
+
+- name: Install Docker Engine
+  become: yes
+  apt:
+    name: docker-ce
+    state: latest
+    update_cache: yes
+
+- name: Create the docker group if it doesn't exist
+  become: yes
+  group:
+    name: docker
+    state: present
+
+- name: Add ubuntu user to the docker group
+  become: yes
+  user:
+    name: ubuntu
+    groups: docker
+    append: yes
+
+- name: Start and enable Docker service
+  become: yes
+  systemd:
+    name: docker
+    enabled: yes
+    state: started
+
+- name: Wait for Docker socket to appear
+  become: yes
+  wait_for:
+    path: /var/run/docker.sock
+    timeout: 60
+
+- name: Fix permissions on Docker socket
+  become: yes
+  file:
+    path: /var/run/docker.sock
+    owner: root
+    group: docker
+    mode: '0660'
