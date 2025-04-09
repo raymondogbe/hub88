@@ -199,8 +199,11 @@ These resources were instrumental in shaping the infrastructure design and ensur
 Running Terraform from the command line was successful
 ![image](https://github.com/user-attachments/assets/32046a17-9f2f-4537-b097-14d7216ffeb3)
 
+
 curl into the instances in the private subnets
+
 ![image](https://github.com/user-attachments/assets/eb7655ad-1bbd-49f0-9ee9-09c558a2ae08)
+
 
 Instances in the ALB were healthy
 ![image](https://github.com/user-attachments/assets/ebc3a34f-ec40-48ea-b4a5-3c67614b17c8)
