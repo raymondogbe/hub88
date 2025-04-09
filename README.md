@@ -1,4 +1,4 @@
-Project description and explanation
+### Project description and explanation
 
 ---
 
@@ -222,12 +222,12 @@ Running Instances
 
 
 ### Jenkins Setup
-Launch another instance for Jenkins
-Install Java, terraform, git and Jenkins
-Configure your jenkins and install the different plugins like the AWS credentials plugin...
-Configure your credentials using the AWS key and secret
-Configure your git token into jenkins for communication
-Copy the jenkinsfile in this repo into your pipeline.
+1. Launch another instance for Jenkins
+2. Install Java, terraform, git and Jenkins
+3. Configure your jenkins and install the different plugins like the AWS credentials plugin...
+4. Configure your credentials using the AWS key and secret
+5. Configure your git token into jenkins for communication
+6. Copy the jenkinsfile in this repo into your pipeline.
 
 
 
