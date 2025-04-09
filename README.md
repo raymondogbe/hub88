@@ -2,7 +2,7 @@ Project description and explanation
 
 ---
 
-### Jump-host Project
+### Terrform-Ansible Project
 
 This project uses **Terraform** to provision AWS infrastructure and **Ansible** to configure services like the Nginx on EC2 instances. The infrastructure includes a **Virtual Private Cloud (VPC)**, private and public subnets across 2 Availability Zones (AZs), EC2 instances, a **Bastion Host (jump host)**, an **Application Load Balancer (ALB)**, and Dockerized **Nginx** services running on each EC2 instance. Additionally, Docker logs are delivered to AWS **CloudWatch** for centralized logging and monitoring.
 
@@ -157,6 +157,10 @@ While working on the project, I encountered several issues:
 - **Terraform Delay**: During one of the runs, I noticed a significant delay in Terraform execution. By enabling debug mode (`terraform apply -debug`), I discovered that the process was stuck due to a permission problem. Specifically, Terraform was trying to move my SSH key to the specified location, but it didn't have the proper permissions. After identifying the issue, I adjusted the permissions, and the problem was resolved.
 
 - **Ansible Failures**: When running Ansible, I faced multiple failures. By increasing the verbosity (`ansible-playbook -vvv`), I was able to trace the issue to Ansible not properly recognizing my SSH key. Once I addressed the SSH configuration, the playbook ran smoothly.
+- Some other challanges were
+1. using Amazon linux2, I realized that I was unable to run Ansible as it kept giving me issues. I had to switch to Ubuntu.
+2. Using t2.micro since it was free, I realized that I had issues automated the deployment. I guess due to its size. Upon using t2.medium, I was able to seemlessly run the automation.
+3. I had a lot of network issues that made me to debugg endlessly. Network issue apparently was as a result of the unstable mobile internet that I had to use.
 
 ---
 
@@ -177,6 +181,7 @@ Jenkins ensures that the process is fully automated, reducing human error and im
 To build this solution, I relied on the following resources:
 
 - **Google**: Terraform documentation and other online resources.
+- **Stackoverflow**: This was very resourceful as I was able to get some written codes that I only needed to tweak.
 - **Terraform Documentation**: [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 - **YouTube**: Videos on Terraform best practices.
 - **Manuals**: Official documentation for Terraform and Ansible.
@@ -190,3 +195,30 @@ These resources were instrumental in shaping the infrastructure design and ensur
 ### Suggested Improvements
 
 - **Auto Scaling**: To enhance availability and fault tolerance, adding **auto-scaling** capabilities to automatically adjust the number of EC2 instances based on traffic load could make the system more resilient and cost-efficient. With auto-scaling, new EC2 instances can be spun up when traffic increases, and unnecessary instances can be terminated when demand decreases.
+  
+Running Terraform from the command line was successful
+![image](https://github.com/user-attachments/assets/32046a17-9f2f-4537-b097-14d7216ffeb3)
+
+curl into the instances in the private subnets
+![image](https://github.com/user-attachments/assets/eb7655ad-1bbd-49f0-9ee9-09c558a2ae08)
+
+Instances in the ALB were healthy
+![image](https://github.com/user-attachments/assets/ebc3a34f-ec40-48ea-b4a5-3c67614b17c8)
+
+Jenkins deployment was successful
+![image](https://github.com/user-attachments/assets/c0937633-6704-4b7e-84df-6a84aa1ba917)
+![image](https://github.com/user-attachments/assets/1b1ab6c2-bba5-44a0-91ae-c59088e3fdba)
+![image](https://github.com/user-attachments/assets/df9e51d9-ab96-4102-b6f0-78ccadec7784)
+
+Cloudwatch logs
+![image](https://github.com/user-attachments/assets/2b818f6d-4cf2-46ce-9650-edcd95d7bef4)
+
+Running Instances
+![image](https://github.com/user-attachments/assets/2a01690c-6ec6-4adf-b4dd-3763e20a1c6f)
+
+
+
+
+
+
+
