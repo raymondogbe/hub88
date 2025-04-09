@@ -1,10 +1,10 @@
 # Backend configuration for Terraform state management
 # terraform {
 #   backend "s3" {
-#     bucket         = "bastion-new" # Replace with your bucket name
+#     bucket         = "hub88bucket" # Replace with your bucket name
 #     key            = "terraform/terraform.tfstate"     # Replace with a custom path
-#     region         = "us-west-2"                       # Replace with your bucket region
-#     dynamodb_table = "bastiondb" # Replace with your DynamoDB table name or you may not need it 
+#     region         = "us-west-1"                       
+#     dynamodb_table = "hub88db" 
 #     encrypt        = true                              # Enable encryption for added security
 #   }
 # }
