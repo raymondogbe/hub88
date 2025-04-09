@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "alb_logs" {
   bucket = var.s3_bucket_name
-  force_destroy = true # Automatically delete all objects in the bucket
+  force_destroy = true 
 }
 
 resource "aws_s3_bucket_ownership_controls" "alb_logs_ownership" {
