@@ -163,7 +163,14 @@ While working on the project, I encountered several issues:
 3. I had a lot of network issues that made me to debugg endlessly. Network issue apparently was as a result of the unstable mobile internet that I had to use.
 
 ---
-
+### Jenkins Setup
+1. Launch another instance for Jenkins
+2. Install Java, terraform, git and Jenkins
+3. Configure your jenkins and install the different plugins like the AWS credentials plugin...
+4. Configure your credentials using the AWS key and secret
+5. Configure your git token into jenkins for communication
+6. Copy the jenkinsfile in this repo into your pipeline.
+   
 ### Jenkins Integration
 
 Jenkins automates the entire CI/CD pipeline, ensuring seamless provisioning and deployment:
@@ -219,15 +226,6 @@ Cloudwatch logs
 Running Instances
 ![image](https://github.com/user-attachments/assets/2a01690c-6ec6-4adf-b4dd-3763e20a1c6f)
 
-
-
-### Jenkins Setup
-1. Launch another instance for Jenkins
-2. Install Java, terraform, git and Jenkins
-3. Configure your jenkins and install the different plugins like the AWS credentials plugin...
-4. Configure your credentials using the AWS key and secret
-5. Configure your git token into jenkins for communication
-6. Copy the jenkinsfile in this repo into your pipeline.
 
 
 
