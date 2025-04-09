@@ -1,10 +1,10 @@
-Your updated project description sounds solid! Here's a refined version with the new details and personal experiences integrated:
+Project description and explanation
 
 ---
 
 ### Jump-host Project
 
-This project uses **Terraform** to provision AWS infrastructure and **Ansible** to configure services on EC2 instances. The infrastructure includes a **Virtual Private Cloud (VPC)**, private and public subnets across 2 Availability Zones (AZs), EC2 instances, a **Bastion Host (jump host)**, an **Application Load Balancer (ALB)**, and Dockerized **Nginx** services running on each EC2 instance. Additionally, Docker logs are delivered to AWS **CloudWatch** for centralized logging and monitoring.
+This project uses **Terraform** to provision AWS infrastructure and **Ansible** to configure services like the Nginx on EC2 instances. The infrastructure includes a **Virtual Private Cloud (VPC)**, private and public subnets across 2 Availability Zones (AZs), EC2 instances, a **Bastion Host (jump host)**, an **Application Load Balancer (ALB)**, and Dockerized **Nginx** services running on each EC2 instance. Additionally, Docker logs are delivered to AWS **CloudWatch** for centralized logging and monitoring.
 
 ---
 
@@ -33,29 +33,31 @@ This project automates the setup and configuration of AWS infrastructure using *
 - A **Jumphost** (Bastion Host) for secure access to the private instances.
 - An **Application Load Balancer (ALB)** that distributes traffic across EC2 instances.
 - **IAM** roles and policies for EC2 instances and CloudWatch access.
+- **S3 Bucket** For remote storage of state files and other logs
 - **Dockerized Nginx instances** running on each EC2 instance with different `index.html` files.
 - **CloudWatch logging** for Docker container logs.
+
 
 ---
 
 ### Key Technologies
 
 - **Terraform** for Infrastructure as Code (IaC).
-- **Ansible** for service configuration.
-- **Docker** for containerizing the Nginx service.
-- **AWS** EC2, VPC, ALB, IAM, and CloudWatch.
+- **Ansible** for server/service configuration.
+- **Docker** for containerization of the Nginx service.
+- **AWS** EC2, VPC, ALB, S3, IAM, and CloudWatch.
 
 ---
 
 ### Prerequisites
 
-Ensure you have the following tools installed on your local machine:
+Ensure you have the following tools installed on your machine:
 
 - **Terraform**: For provisioning AWS infrastructure.
 - **Ansible**: For configuration management and deployment.
 - **AWS CLI**: For managing AWS resources.
-- **Docker**: For containerizing applications.
-- **Jenkins** (optional): For automating the Terraform and Ansible workflow.
+- **Docker**: For containerization of applications.
+- **Jenkins** (optional): For automating the Terraform and Ansible workflow. in a CICD workflow
 
 You also need:
 
@@ -70,8 +72,8 @@ You also need:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/Jump-host.git
-   cd Jump-host
+   git clone https://github.com/yourusername/hub88.git
+   cd hub88
    ```
 
 2. Initialize Terraform:
@@ -86,9 +88,9 @@ You also need:
 
 4. Apply the Terraform Plan:
    ```bash
-   terraform apply tfplan
+   terraform apply --auto-approve
    ```
-   This will create the necessary resources, such as the VPC, subnets, EC2 instances, ALB, IAM roles, and policies.
+   This will create the necessary resources, such as the VPC, subnets, EC2 instances, ALB, IAM roles, and policies, S3 buckets, cloudwatch....
 
 #### Ansible Setup
 
@@ -122,9 +124,9 @@ ansible-playbook -i inventory.ini playbook.yml
 2. **Subnets**: Private and public subnets are created following best practices for high availability and fault tolerance. These subnets are distributed across two Availability Zones (AZs) to ensure redundancy.
 
    - **Private Subnets**:
-     - `10.161.0.154`
-     - `10.161.0.148`
-     - `10.161.0.156`
+     - `10.161.0.153`
+     - `10.161.0.155`
+     - `10.161.0.149`
 
    These subnets are located in different AZs for high availability. By placing instances in private subnets, they are shielded from direct internet access, enhancing security.
 
