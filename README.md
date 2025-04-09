@@ -4,7 +4,7 @@ Project description and explanation
 
 ### Terrform-Ansible Project
 
-This project uses **Terraform** to provision AWS infrastructure and **Ansible** to configure services like the Nginx on EC2 instances. The infrastructure includes a **Virtual Private Cloud (VPC)**, private and public subnets across 2 Availability Zones (AZs), EC2 instances, a **Bastion Host (jump host)**, an **Application Load Balancer (ALB)**, and Dockerized **Nginx** services running on each EC2 instance. Additionally, Docker logs are delivered to AWS **CloudWatch** for centralized logging and monitoring.
+This project uses **Terraform** to provision AWS infrastructure and **Ansible** to configure services like the Nginx on EC2 instances. The infrastructure includes a **Virtual Private Cloud (VPC)**, private and public subnets across 2 Availability Zones (AZs), EC2 instances, a **Bastion Host (jump host)**, **S3 bucket** for statefiles and logs, an **Application Load Balancer (ALB)**, and Dockerized **Nginx** services running on each EC2 instance. Additionally, Docker logs are delivered to AWS **CloudWatch** for centralized logging and monitoring.
 
 ---
 
