@@ -197,7 +197,7 @@ Use your credentials to log in.
    - You can get your git token from github. Follow this instruction link https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
    - Github token should be added to credentials in jenkins, same as it was done for others as above
 7. From the jenkins dashboard, click on "new item" button in order to create a new job
-8. Enter a item name, which is the name for the job and select "pipeline"
+8. Enter an **"item name"**, which is the name for the job and select **"pipeline"** and click **"OK"**
 9. Copy the jenkinsfile in this repo into your pipeline script and save. Make sure that the credentials name is same with the one in the jenkinsfile script
 10. To run jenkins, click on **"Build now"** from the dashboard.
 11. For errors, check the console logs.
