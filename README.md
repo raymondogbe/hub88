@@ -175,12 +175,32 @@ While working on the project, I encountered several issues:
 
 Use your credentials to log in.
 ### Jenkins Setup
-1. Launch another instance for Jenkins
-2. Install Java, terraform, git and Jenkins
-3. Configure your jenkins and install the different plugins like the AWS credentials plugin...
-4. Configure your credentials using the AWS key and secret
-5. Configure your git token into jenkins for communication
-6. Copy the jenkinsfile in this repo into your pipeline.
+1. Launch or create another ec2-instance for Jenkins. Follow instructions in this link https://www.techtarget.com/searchcloudcomputing/tutorial/How-to-create-an-EC2-instance-from-AWS-Console
+2. Install Java 17 and terraform
+3. Install docker and jenkins
+   -   For Terraform installation and configuration, click on this link https://www.cherryservers.com/blog/install-terraform-ubuntu
+   -   For Docker installation and configuration, click on this link https://www.cherryservers.com/blog/install-docker-ubuntu-22-04
+   -   For Jenkins installation and configuration, click on this link https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
+   -   Once jenkins is done installing, use the ec2-instance public IP and the jenkins port number 8080 to access jenkins. http://instanceip:8080
+   -   ![image](https://github.com/user-attachments/assets/2f87d80a-3330-4c3a-a13d-1b726a0006e2)
+   -   Unlock jenkins by entering the Admin password that can be retrieved using the path in the screenshot above
+   -   Create a user by entering username, password and name in the space provided
+   -   Install all the suggested plugins
+4. Configure your jenkins and install the different plugins like the AWS credentials plugin...
+   -   From the jenkins dashboard, click on manage jenkins, click on manage plugins, from the page that appears, click on available plugin and type the plugin you want to install in the search bar.
+   -   Use same method to install "pipepline stage view" plugin.
+   -   Install "docker pipeline" plugin with same method
+5. Configure your credentials using the AWS key and secret
+   -   From the jenkins dashboard, click on manage jenkins, click on credentials, click on global and insert your credentials using AWS credentials.
+   -   You can also use the secret text to store your AWS access key and secret key. You can get more information here: https://medium.com/novai-devops-101/configuring-jenkins-credentials-for-deployment-to-ubuntu-host-using-scp-and-ssh-43b962b7eb67
+6. Configure your git token into jenkins for communication
+   - You can get your git token from github. Follow this instruction link https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+   - Github token should be added to credentials in jenkins, same as it was done for others as above
+7. From the jenkins dashboard, click on "new item" button in order to create a new job
+8. Enter a name for the job and select "pipeline"
+9. Copy the jenkinsfile in this repo into your pipeline script and save. Make sure that the credentials name is same with the one in the jenkinsfile script
+10. To run jenkins, click on **"Build now"** from the dashboard.
+11. For errors, check the console logs.
    
 ### Jenkins Integration
 
