@@ -163,7 +163,7 @@ While working on the project, I encountered several issues:
 3. I had a lot of network issues that made me to debugg endlessly. Network issue apparently was as a result of the unstable mobile internet that I had to use.
 
 ---
-### DYNAMODB SETUP
+### DYNAMO-DB SETUP
 1.   Sign in to AWS Console: Go to: https://console.aws.amazon.com
 2.   Sign in using your credentials
 3.   In the search bar, type DynamoDB and select it from the drop down menu
@@ -220,11 +220,13 @@ To build this solution, I relied on the following resources:
 
 - **Google**: Terraform documentation and other online resources.
 - **Stackoverflow**: This was very resourceful as I was able to get some written codes that I only needed to tweak.
+- **Others**: https://www.jenkins.io/doc/book/installing/linux/ https://www.cherryservers.com/blog/install-docker-ubuntu-22-04
 - **Terraform Documentation**: [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 - **YouTube**: Videos on Terraform best practices.
 - **Manuals**: Official documentation for Terraform and Ansible.
   - [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
   - [Ansible AWS Collection](https://docs.ansible.com/ansible/latest/collections/amazon/aws/index.html)
+  - [Jenkins Documentation](https://www.jenkins.io/doc/book/installing/linux/)
 
 These resources were instrumental in shaping the infrastructure design and ensuring that the environment was properly configured for seamless deployment and management.
 
