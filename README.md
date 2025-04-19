@@ -163,6 +163,17 @@ While working on the project, I encountered several issues:
 3. I had a lot of network issues that made me to debugg endlessly. Network issue apparently was as a result of the unstable mobile internet that I had to use.
 
 ---
+### DYNAMODB SETUP
+1.   Sign in to AWS Console: Go to: https://console.aws.amazon.com
+2.   Sign in using your credentials
+3.   In the search bar, type DynamoDB and select it from the drop down menu
+4.   From the dashboard, click on **"create table"** button
+5.   Type in a table name of preference. This table name will be inserted into our terraform remote backend configuration code
+6.   Type in **"LockID"** as the partition key. LockID is used to implement a distributed locking mechanism, particularly when managing Terraform state since this is what it is needed for.
+7.   Scroll down and click on **"create table"** button
+8.   Your table would be obvious on the Dashboard
+
+Use your credentials to log in.
 ### Jenkins Setup
 1. Launch another instance for Jenkins
 2. Install Java, terraform, git and Jenkins
