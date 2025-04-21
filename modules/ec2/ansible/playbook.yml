@@ -1,5 +1,22 @@
 - name: Configure EC2 instances with CloudWatch, Docker, and Nginx
-  hosts: all
+  hosts: bastion
+  become: yes
+  vars_files:
+    - vars/main.yml
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
+  tasks:
+    - name: Include CloudWatch role
+      include_role:
+        name: cloudwatch
+
+    - name: Include Docker role
+      include_role:
+        name: docker
+
+
+- name: Configure EC2 instances with CloudWatch, Docker, and Nginx
+  hosts: nginx_servers
   become: yes
   vars_files:
     - vars/main.yml
